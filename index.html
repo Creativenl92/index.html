@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interview Application Form</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f6f8;
+      font-size:14px;
+    }
+    .page{
+      width:900px;
+      margin:30px auto;
+      background:#ffffff;
+      padding:30px;
+      box-shadow:0 0px 10px rgba(0,0,0,0.1);
+    }
+    h2{
+      text-align:center;
+      margin-bottom:20px;
+      letter-spacing:1px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:14px;
+    }
+    td{
+      border:1px solid #ccc;
+      padding:10px;
+      vertical-align:top;
+    }
+    .section{
+      background:#e9ecef;
+      font-weight:bold;
+      text-transform:uppercase;
+      font-size:13px;
+      letter-spacing:0.5px;
+    }
+    textarea, input{
+      width:100%;
+      border:none;
+      outline:none;
+      font-size:14px;
+      resize:none;
+      background:transparent;
+    }
+    textarea{
+      min-height:60px;
+    }
+    .center{
+      text-align:center;
+      margin-top:20px;
+    }
+    button{
+      padding:12px 40px;
+      font-size:16px;
+      background:#007bff;
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+    }
+    button:hover{
+      background:#0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+<form id="form">
+<div class="page">
+
+<h2>INTERVIEW APPLICATION FORM</h2>
+
+<table>
+
+<tr class="section"><td>PERSONAL BACKGROUND</td></tr>
+<tr><td><textarea name="origin_city" placeholder="Origin & Current City"></textarea></td></tr>
+<tr><td><textarea name="family_details" placeholder="Family Details"></textarea></td></tr>
+
+<tr class="section"><td>EDUCATION</td></tr>
+<tr><td><textarea name="education_details" placeholder="Degree | College | Year"></textarea></td></tr>
+<tr><td><input name="academic_score" placeholder="Highest Score / Grade"></td></tr>
+
+<tr class="section"><td>CAREER</td></tr>
+<tr><td><textarea name="first_job" placeholder="First Job"></textarea></td></tr>
+<tr><td><textarea name="career_journey" placeholder="Career Journey"></textarea></td></tr>
+<tr><td><textarea name="achievements" placeholder="Achievements"></textarea></td></tr>
+<tr><td><textarea name="company_growth" placeholder="Contribution to Company"></textarea></td></tr>
+
+<tr class="section"><td>ASPIRATIONS</td></tr>
+<tr><td><textarea name="role_growth" placeholder="Growth in Current Role"></textarea></td></tr>
+<tr><td><textarea name="next_role" placeholder="Next Role Expectation"></textarea></td></tr>
+<tr><td><textarea name="career_goals" placeholder="Career Goals"></textarea></td></tr>
+<tr><td><textarea name="personal_goals" placeholder="Personal Goals"></textarea></td></tr>
+
+<tr class="section"><td>SKILLS</td></tr>
+<tr><td><textarea name="skills" placeholder="Key Skills"></textarea></td></tr>
+<tr><td><textarea name="pressure_handling" placeholder="Handling Pressure"></textarea></td></tr>
+<tr><td><textarea name="conflict_handling" placeholder="Handling Conflicts"></textarea></td></tr>
+
+<tr class="section"><td>IT SKILLS</td></tr>
+<tr><td><textarea name="it_skills" placeholder="IT / Software Skills"></textarea></td></tr>
+
+<tr class="section"><td>IMPROVEMENT AREAS</td></tr>
+<tr><td><textarea name="improvement" placeholder="Areas of Improvement"></textarea></td></tr>
+
+<tr class="section"><td>COMPENSATION</td></tr>
+<tr><td><textarea name="current_ctc" placeholder="Current CTC"></textarea></td></tr>
+<tr><td><textarea name="expected_ctc" placeholder="Expected CTC"></textarea></td></tr>
+<tr><td><input name="notice_period" placeholder="Notice Period / Joining Date"></td></tr>
+
+</table>
+
+<div class="center">
+  <button type="submit">Submit Application</button>
+</div>
+
+</div>
+</form>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const data = Object.fromEntries(new FormData(this).entries());
+
+  fetch("https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(data)
+  })
+  .then(res => res.text())
+  .then(msg => {
+    alert(msg);
+    document.getElementById("form").reset();
+  })
+  .catch(err => alert("Error: " + err));
+});
+</script>
+
+</body>
+</html>
