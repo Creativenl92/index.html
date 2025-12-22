@@ -128,19 +128,26 @@ document.getElementById("form").addEventListener("submit", function(e){
 
   const data = Object.fromEntries(new FormData(this).entries());
 
-  fetch("https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyWvIjOgcyJUnjDnCYb8teoHlYp1zR3rVKpEGiWTmfRjJRsyZphXypeZd4jGbqupouqXQ/exec", {
     method: "POST",
-    headers: {"Content-Type":"application/json"},
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
-  .then(res => res.text())
-  .then(msg => {
-    alert(msg);
-    document.getElementById("form").reset();
+  .then(res => res.json())
+  .then(res => {
+    if(res.status === "success"){
+      alert(res.message);
+      document.getElementById("form").reset();
+    } else {
+      alert("Error: " + res.message);
+    }
   })
-  .catch(err => alert("Error: " + err));
+  .catch(err => alert("Network Error: " + err));
 });
 </script>
 
 </body>
 </html>
+
