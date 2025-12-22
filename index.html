@@ -2,81 +2,29 @@
 <html>
 <head>
   <title>Interview Application Form</title>
-
   <style>
-    body{
-      font-family: Arial, sans-serif;
-      background:#f4f6f8;
-      font-size:14px;
-    }
-    .page{
-      width:900px;
-      margin:30px auto;
-      background:#ffffff;
-      padding:30px;
-      box-shadow:0 0px 10px rgba(0,0,0,0.1);
-    }
-    h2{
-      text-align:center;
-      margin-bottom:20px;
-      letter-spacing:1px;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:14px;
-    }
-    td{
-      border:1px solid #ccc;
-      padding:10px;
-      vertical-align:top;
-    }
-    .section{
-      background:#e9ecef;
-      font-weight:bold;
-      text-transform:uppercase;
-      font-size:13px;
-      letter-spacing:0.5px;
-    }
-    textarea, input{
-      width:100%;
-      border:none;
-      outline:none;
-      font-size:14px;
-      resize:none;
-      background:transparent;
-    }
-    textarea{
-      min-height:60px;
-    }
-    .center{
-      text-align:center;
-      margin-top:20px;
-    }
-    button{
-      padding:12px 40px;
-      font-size:16px;
-      background:#007bff;
-      color:#fff;
-      border:none;
-      border-radius:4px;
-      cursor:pointer;
-    }
-    button:hover{
-      background:#0056b3;
-    }
+    body{font-family: Arial, sans-serif; background:#f4f6f8; font-size:14px;}
+    .page{width:900px; margin:30px auto; background:#ffffff; padding:30px; box-shadow:0 0px 10px rgba(0,0,0,0.1);}
+    h2{text-align:center; margin-bottom:20px; letter-spacing:1px;}
+    table{width:100%; border-collapse:collapse; font-size:14px;}
+    td{border:1px solid #ccc; padding:10px; vertical-align:top;}
+    .section{background:#e9ecef; font-weight:bold; text-transform:uppercase; font-size:13px; letter-spacing:0.5px;}
+    textarea, input{width:100%; border:none; outline:none; font-size:14px; resize:none; background:transparent;}
+    textarea{min-height:60px;}
+    .center{text-align:center; margin-top:20px;}
+    button{padding:12px 40px; font-size:16px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;}
+    button:hover{background:#0056b3;}
   </style>
 </head>
 
 <body>
 
-<form id="form">
 <div class="page">
 
 <h2>INTERVIEW APPLICATION FORM</h2>
 
+<form id="form">
 <table>
-
 <tr class="section"><td>PERSONAL BACKGROUND</td></tr>
 <tr><td><textarea name="origin_city" placeholder="Origin & Current City"></textarea></td></tr>
 <tr><td><textarea name="family_details" placeholder="Family Details"></textarea></td></tr>
@@ -112,22 +60,34 @@
 <tr><td><textarea name="current_ctc" placeholder="Current CTC"></textarea></td></tr>
 <tr><td><textarea name="expected_ctc" placeholder="Expected CTC"></textarea></td></tr>
 <tr><td><input name="notice_period" placeholder="Notice Period / Joining Date"></td></tr>
-
 </table>
 
 <div class="center">
   <button type="submit">Submit Application</button>
 </div>
-
-</div>
 </form>
 
-<form 
-  method="POST" 
-  action="https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec"
->
+</div>
+
+<script>
+const form = document.getElementById("form");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault(); // page reload rokega
+  const data = Object.fromEntries(new FormData(form));
+  
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec", {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+    const text = await response.text();
+    alert(text); // Success ya error message show karega
+    form.reset(); // form clear karega
+  } catch(err) {
+    alert("Error: " + err);
+  }
+});
+</script>
 
 </body>
 </html>
-
-
