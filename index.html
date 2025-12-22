@@ -122,32 +122,12 @@
 </div>
 </form>
 
-<script>
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const data = Object.fromEntries(new FormData(this).entries());
-
-  fetch("https://script.google.com/macros/s/AKfycbyWvIjOgcyJUnjDnCYb8teoHlYp1zR3rVKpEGiWTmfRjJRsyZphXypeZd4jGbqupouqXQ/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(res => res.json())
-  .then(res => {
-    if(res.status === "success"){
-      alert(res.message);
-      document.getElementById("form").reset();
-    } else {
-      alert("Error: " + res.message);
-    }
-  })
-  .catch(err => alert("Network Error: " + err));
-});
-</script>
+<form 
+  method="POST" 
+  action="https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec"
+>
 
 </body>
 </html>
+
 
