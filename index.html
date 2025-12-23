@@ -2,90 +2,234 @@
 <html>
 <head>
   <title>Interview Application Form</title>
+
   <style>
-    body{font-family: Arial, sans-serif; background:#f4f6f8; font-size:14px;}
-    .page{width:900px; margin:30px auto; background:#ffffff; padding:30px; box-shadow:0 0px 10px rgba(0,0,0,0.1);}
-    h2{text-align:center; margin-bottom:20px; letter-spacing:1px;}
-    table{width:100%; border-collapse:collapse; font-size:14px;}
-    td{border:1px solid #ccc; padding:10px; vertical-align:top;}
-    .section{background:#e9ecef; font-weight:bold; text-transform:uppercase; font-size:13px; letter-spacing:0.5px;}
-    textarea, input{width:100%; border:none; outline:none; font-size:14px; resize:none; background:transparent;}
-    textarea{min-height:60px;}
-    .center{text-align:center; margin-top:20px;}
-    button{padding:12px 40px; font-size:16px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;}
-    button:hover{background:#0056b3;}
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f6f8;
+    }
+    .page{
+      width:900px;
+      margin:30px auto;
+      background:#ffffff;
+      padding:30px;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+    h2{
+      text-align:center;
+      margin-bottom:25px;
+      letter-spacing:1px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:14px;
+    }
+    th,td{
+      border:1px solid #ccc;
+      padding:10px;
+      vertical-align:top;
+    }
+    th{
+      background:#f8f9fa;
+      font-weight:bold;
+      text-align:left;
+      width:30%;
+    }
+    .section{
+      background:#e9ecef;
+      font-weight:bold;
+      text-transform:uppercase;
+      font-size:13px;
+      text-align:center;
+      letter-spacing:0.5px;
+    }
+    textarea,input{
+      width:100%;
+      border:none;
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:70px}
+    .edu-table th{
+      background:#dee2e6;
+      text-align:center;
+      font-size:13px;
+    }
+    .center{text-align:center}
+    button{
+      padding:12px 40px;
+      font-size:16px;
+      background:#007bff;
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+    }
+    button:hover{background:#0056b3}
   </style>
 </head>
 
 <body>
 
+<form id="form">
 <div class="page">
 
 <h2>INTERVIEW APPLICATION FORM</h2>
 
-<form id="form">
 <table>
-<tr class="section"><td>PERSONAL BACKGROUND</td></tr>
-<tr><td><textarea name="origin_city" placeholder="Origin & Current City"></textarea></td></tr>
-<tr><td><textarea name="family_details" placeholder="Family Details"></textarea></td></tr>
 
-<tr class="section"><td>EDUCATION</td></tr>
-<tr><td><textarea name="education_details" placeholder="Degree | College | Year"></textarea></td></tr>
-<tr><td><input name="academic_score" placeholder="Highest Score / Grade"></td></tr>
+<tr><td colspan="2" class="section">PERSONAL BACKGROUND</td></tr>
+<tr>
+  <th>Full Name</th>
+  <td><input name="full_name"></td>
+</tr>
+<tr>
+  <th>Origin & Current City</th>
+  <td><textarea name="origin_city"></textarea></td>
+</tr>
+<tr>
+  <th>Family Details</th>
+  <td><textarea name="family_details"></textarea></td>
+</tr>
 
-<tr class="section"><td>CAREER</td></tr>
-<tr><td><textarea name="first_job" placeholder="First Job"></textarea></td></tr>
-<tr><td><textarea name="career_journey" placeholder="Career Journey"></textarea></td></tr>
-<tr><td><textarea name="achievements" placeholder="Achievements"></textarea></td></tr>
-<tr><td><textarea name="company_growth" placeholder="Contribution to Company"></textarea></td></tr>
+<tr><td colspan="2" class="section">EDUCATION</td></tr>
+<tr>
+  <th>Academic Qualifications</th>
+  <td>
+    <table class="edu-table">
+      <tr>
+        <th>Degree</th>
+        <th>College / University</th>
+        <th>Year</th>
+      </tr>
+      <tr>
+        <td><input name="degree_1"></td>
+        <td><input name="college_1"></td>
+        <td><input name="year_1"></td>
+      </tr>
+      <tr>
+        <td><input name="degree_2"></td>
+        <td><input name="college_2"></td>
+        <td><input name="year_2"></td>
+      </tr>
+      <tr>
+        <td><input name="degree_3"></td>
+        <td><input name="college_3"></td>
+        <td><input name="year_3"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <th>Highest Score / Grade</th>
+  <td><input name="academic_score"></td>
+</tr>
 
-<tr class="section"><td>ASPIRATIONS</td></tr>
-<tr><td><textarea name="role_growth" placeholder="Growth in Current Role"></textarea></td></tr>
-<tr><td><textarea name="next_role" placeholder="Next Role Expectation"></textarea></td></tr>
-<tr><td><textarea name="career_goals" placeholder="Career Goals"></textarea></td></tr>
-<tr><td><textarea name="personal_goals" placeholder="Personal Goals"></textarea></td></tr>
+<tr><td colspan="2" class="section">CAREER</td></tr>
+<tr>
+  <th>First Job</th>
+  <td><textarea name="first_job"></textarea></td>
+</tr>
+<tr>
+  <th>Career Journey</th>
+  <td><textarea name="career_journey"></textarea></td>
+</tr>
+<tr>
+  <th>Achievements</th>
+  <td><textarea name="achievements"></textarea></td>
+</tr>
+<tr>
+  <th>Contribution to Company</th>
+  <td><textarea name="company_growth"></textarea></td>
+</tr>
 
-<tr class="section"><td>SKILLS</td></tr>
-<tr><td><textarea name="skills" placeholder="Key Skills"></textarea></td></tr>
-<tr><td><textarea name="pressure_handling" placeholder="Handling Pressure"></textarea></td></tr>
-<tr><td><textarea name="conflict_handling" placeholder="Handling Conflicts"></textarea></td></tr>
+<tr><td colspan="2" class="section">ASPIRATIONS</td></tr>
+<tr>
+  <th>Growth in Current Role</th>
+  <td><textarea name="role_growth"></textarea></td>
+</tr>
+<tr>
+  <th>Next Role Expectation</th>
+  <td><textarea name="next_role"></textarea></td>
+</tr>
+<tr>
+  <th>Career Goals</th>
+  <td><textarea name="career_goals"></textarea></td>
+</tr>
+<tr>
+  <th>Personal Goals</th>
+  <td><textarea name="personal_goals"></textarea></td>
+</tr>
 
-<tr class="section"><td>IT SKILLS</td></tr>
-<tr><td><textarea name="it_skills" placeholder="IT / Software Skills"></textarea></td></tr>
+<tr><td colspan="2" class="section">SKILLS</td></tr>
+<tr>
+  <th>Key Skills</th>
+  <td><textarea name="skills"></textarea></td>
+</tr>
+<tr>
+  <th>Handling Pressure</th>
+  <td><textarea name="pressure_handling"></textarea></td>
+</tr>
+<tr>
+  <th>Handling Conflicts</th>
+  <td><textarea name="conflict_handling"></textarea></td>
+</tr>
 
-<tr class="section"><td>IMPROVEMENT AREAS</td></tr>
-<tr><td><textarea name="improvement" placeholder="Areas of Improvement"></textarea></td></tr>
+<tr><td colspan="2" class="section">IT SKILLS</td></tr>
+<tr>
+  <th>IT / Software Skills</th>
+  <td><textarea name="it_skills"></textarea></td>
+</tr>
 
-<tr class="section"><td>COMPENSATION</td></tr>
-<tr><td><textarea name="current_ctc" placeholder="Current CTC"></textarea></td></tr>
-<tr><td><textarea name="expected_ctc" placeholder="Expected CTC"></textarea></td></tr>
-<tr><td><input name="notice_period" placeholder="Notice Period / Joining Date"></td></tr>
+<tr><td colspan="2" class="section">IMPROVEMENT AREAS</td></tr>
+<tr>
+  <th>Areas of Improvement</th>
+  <td><textarea name="improvement"></textarea></td>
+</tr>
+
+<tr><td colspan="2" class="section">COMPENSATION</td></tr>
+<tr>
+  <th>Current CTC</th>
+  <td><input name="current_ctc"></td>
+</tr>
+<tr>
+  <th>Expected CTC</th>
+  <td><input name="expected_ctc"></td>
+</tr>
+<tr>
+  <th>Notice Period / Joining Date</th>
+  <td><input name="notice_period"></td>
+</tr>
+
 </table>
 
 <div class="center">
+  <br>
   <button type="submit">Submit Application</button>
+</div>
+
 </div>
 </form>
 
-</div>
-
 <script>
-const form = document.getElementById("form");
-form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // page reload rokega
-  const data = Object.fromEntries(new FormData(form));
-  
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxwC44egK6f74Ryg6z0VASnYPagCnf_IdKVimOtBT-Y-7eFz_MiJ1ge5W_zUE5gPDK93A/exec", {
-      method: "POST",
-      body: JSON.stringify(data)
-    });
-    const text = await response.text();
-    alert(text); // Success ya error message show karega
-    form.reset(); // form clear karega
-  } catch(err) {
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbz-Vhf5hN3_owVcRSXE-EA0ApkiIWeGF3NmZDawk_XF-_s2pWFdSUIUS7DQrI0CcP5z3g/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(msg => {
+    alert(msg);
+    document.getElementById("form").reset();
+  })
+  .catch(err => {
     alert("Error: " + err);
-  }
+  });
 });
 </script>
 
